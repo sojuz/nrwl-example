@@ -2,12 +2,240 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {},
+  "projects": {
+    "tasks-manager": {
+      "root": "apps/tasks-manager/",
+      "sourceRoot": "apps/tasks-manager/src",
+      "projectType": "application",
+      "prefix": "mastacode",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/tasks-manager",
+            "index": "apps/tasks-manager/src/index.html",
+            "main": "apps/tasks-manager/src/main.ts",
+            "polyfills": "apps/tasks-manager/src/polyfills.ts",
+            "tsConfig": "apps/tasks-manager/tsconfig.app.json",
+            "assets": [
+              "apps/tasks-manager/src/favicon.ico",
+              "apps/tasks-manager/src/assets"
+            ],
+            "styles": [
+              "apps/tasks-manager/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/tasks-manager/src/environments/environment.ts",
+                  "with": "apps/tasks-manager/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "tasks-manager:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "tasks-manager:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "tasks-manager:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/tasks-manager/src/test.ts",
+            "polyfills": "apps/tasks-manager/src/polyfills.ts",
+            "tsConfig": "apps/tasks-manager/tsconfig.spec.json",
+            "karmaConfig": "apps/tasks-manager/karma.conf.js",
+            "styles": [
+              "apps/tasks-manager/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "apps/tasks-manager/src/favicon.ico",
+              "apps/tasks-manager/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/tasks-manager/tsconfig.app.json",
+              "apps/tasks-manager/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "tasks-manager-e2e": {
+      "root": "apps/tasks-manager-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/tasks-manager-e2e/protractor.conf.js",
+            "devServerTarget": "tasks-manager:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/tasks-manager-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "tasks": {
+      "root": "libs/tasks",
+      "sourceRoot": "libs/tasks/src",
+      "projectType": "library",
+      "prefix": "mastacode",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/tasks/src/test.ts",
+            "tsConfig": "libs/tasks/tsconfig.spec.json",
+            "karmaConfig": "libs/tasks/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/tasks/tsconfig.lib.json",
+              "libs/tasks/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "tasks-tasklists": {
+      "root": "libs/tasks/tasklists",
+      "sourceRoot": "libs/tasks/tasklists/src",
+      "projectType": "library",
+      "prefix": "mastacode",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/tasks/tasklists/src/test.ts",
+            "tsConfig": "libs/tasks/tasklists/tsconfig.spec.json",
+            "karmaConfig": "libs/tasks/tasklists/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/tasks/tasklists/tsconfig.lib.json",
+              "libs/tasks/tasklists/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "tasks-task": {
+      "root": "libs/tasks/task",
+      "sourceRoot": "libs/tasks/task/src",
+      "projectType": "library",
+      "prefix": "mastacode",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/tasks/task/src/test.ts",
+            "tsConfig": "libs/tasks/task/tsconfig.spec.json",
+            "karmaConfig": "libs/tasks/task/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/tasks/task/tsconfig.lib.json",
+              "libs/tasks/task/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "core": {
+      "root": "libs/core",
+      "sourceRoot": "libs/core/src",
+      "projectType": "library",
+      "prefix": "mastacode",
+      "architect": {
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/core/src/test.ts",
+            "tsConfig": "libs/core/tsconfig.spec.json",
+            "karmaConfig": "libs/core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/core/tsconfig.lib.json",
+              "libs/core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "warnings": {
       "typescriptMismatch": false,
       "versionMismatch": false
     },
     "defaultCollection": "@nrwl/schematics"
-  }
+  },
+  "defaultProject": "tasks-manager"
 }

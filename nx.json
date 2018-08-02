@@ -7,5 +7,24 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "tasks-manager": {
+      "tags": []
+    },
+    "tasks-manager-e2e": {
+      "tags": []
+    },
+    "tasks": {
+      "tags": []
+    },
+    "tasks-tasklists": {
+      "tags": []
+    },
+    "tasks-task": {
+      "tags": []
+    },
+    "core": {
+      "tags": []
+    }
+  }
 }

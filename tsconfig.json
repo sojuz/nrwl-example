@@ -16,6 +16,18 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@mastacode/tasks": [
+        "libs/tasks/src/index.ts"
+      ],
+      "@mastacode/tasks/tasklists": [
+        "libs/tasks/tasklists/src/index.ts"
+      ],
+      "@mastacode/tasks/task": [
+        "libs/tasks/task/src/index.ts"
+      ],
+      "@mastacode/core": [
+        "libs/core/src/index.ts"
+      ]
     }
   },
   "exclude": [
