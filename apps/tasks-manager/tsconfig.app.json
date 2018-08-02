@@ -3,7 +3,10 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc/apps/tasks-manager",
     "module": "es2015",
-    "types": []
+    "types": [
+      "gapi",
+      "gapi.auth2"
+    ]
   },
   "exclude": [
     "src/test.ts",
@@ -11,7 +14,7 @@
   ],
   "include": [
     "**/*.ts"
-  
+
     , "../../libs/tasks/tasklists/src/index.ts"
 
     , "../../libs/tasks/task/src/index.ts"
