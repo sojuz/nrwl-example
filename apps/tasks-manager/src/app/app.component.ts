@@ -9,6 +9,6 @@ export class AppComponent implements OnInit {
   title = 'mastacode';
 
   ngOnInit() {
-    console.log(gapi.auth2.getAuthInstance().isSignedIn.get());
+    console.log();
   }
 }

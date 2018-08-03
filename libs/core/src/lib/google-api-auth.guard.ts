@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {
   CanActivate,
   ActivatedRouteSnapshot,
-  RouterStateSnapshot
+  RouterStateSnapshot,
+  Router
 } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -10,10 +11,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GoogleApiAuthGuard implements CanActivate {
+
+  constructor(private router: Router) {}
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    return false;
+    const isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
+    if (!isSignedIn) {
+      this.router.navigate(['/auth/login']);
+    }
+
+    return isSignedIn;
   }
 }
