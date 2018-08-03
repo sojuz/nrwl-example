@@ -17,6 +17,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
+import { GoogleApiAuthGuard } from '@mastacode/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,17 +25,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
     BrowserModule,
     NxModule.forRoot(),
     RouterModule.forRoot(
-      [
-        { path: 'tasks', children: tasksRoutes },
-        {
-          path: '',
-          loadChildren: '@mastacode/tasks/tasklists#TasksTasklistsModule'
-        },
-        {
-          path: 'task',
-          loadChildren: '@mastacode/tasks/task#TasksTaskModule'
-        }
-      ],
+      [{ path: '', children: tasksRoutes, canActivate: [GoogleApiAuthGuard] }],
       {
         initialNavigation: 'enabled',
         enableTracing: true

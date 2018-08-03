@@ -9,7 +9,10 @@ describe('GoogleApiAuthGuard', () => {
     });
   });
 
-  it('should ...', inject([GoogleApiAuthGuard], (guard: GoogleApiAuthGuard) => {
-    expect(guard).toBeTruthy();
-  }));
+  it(
+    'should ...',
+    inject([GoogleApiAuthGuard], (guard: GoogleApiAuthGuard) => {
+      expect(guard).toBeTruthy();
+    })
+  );
 });

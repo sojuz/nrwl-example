@@ -10,7 +10,20 @@ import {
 import { TasksEffects } from './+state/tasks.effects';
 import { TasksComponent } from './tasks/tasks.component';
 
-export const tasksRoutes: Route[] = [];
+export const tasksRoutes: Route[] = [
+  {
+    path: 'index',
+    loadChildren: '@mastacode/tasks#TasksModule'
+  },
+  {
+    path: '',
+    loadChildren: '@mastacode/tasks/tasklists#TasksTasklistsModule'
+  },
+  {
+    path: 'task',
+    loadChildren: '@mastacode/tasks/task#TasksTaskModule'
+  }
+];
 @NgModule({
   imports: [
     CommonModule,
