@@ -16,11 +16,11 @@ import { GoogleApiService } from '@mastacode/core';
       [
         { path: 'tasks', children: tasksRoutes },
         {
-          path: 'tasks-tasklists',
+          path: '',
           loadChildren: '@mastacode/tasks/tasklists#TasksTasklistsModule'
         },
         {
-          path: 'tasks-task',
+          path: 'task',
           loadChildren: '@mastacode/tasks/task#TasksTaskModule'
         }
       ],
