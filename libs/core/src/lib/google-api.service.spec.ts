@@ -9,7 +9,10 @@ describe('GoogleApiService', () => {
     });
   });
 
-  it('should be created', inject([GoogleApiService], (service: GoogleApiService) => {
-    expect(service).toBeTruthy();
-  }));
+  it(
+    'should be created',
+    inject([GoogleApiService], (service: GoogleApiService) => {
+      expect(service).toBeTruthy();
+    })
+  );
 });

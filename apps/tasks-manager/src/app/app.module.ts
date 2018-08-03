@@ -1,8 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {
-  APP_INITIALIZER,
-  NgModule
-} from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
@@ -33,14 +30,14 @@ import { GoogleApiService } from '@mastacode/core';
     )
   ],
   providers: [
-    GoogleApiService,
     {
       /**
        * https://juristr.com/blog/2018/01/ng-app-runtime-config/#runtime-configuration
        * only promises in APP_INITIALIZER
        */
       provide: APP_INITIALIZER,
-      useFactory: (googleApi: GoogleApiService) => () => googleApi.initClient().toPromise(),
+      useFactory: (googleApi: GoogleApiService) => () =>
+        googleApi.initClient().toPromise(),
       multi: true,
       deps: [GoogleApiService]
     }
