@@ -25,6 +25,11 @@
     },
     "core": {
       "tags": []
+    },
+    "auth": {
+      "tags": [
+        "shared"
+      ]
     }
   }
 }

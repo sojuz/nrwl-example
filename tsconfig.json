@@ -27,6 +27,9 @@
       ],
       "@mastacode/core": [
         "libs/core/src/index.ts"
+      ],
+      "@mastacode/auth": [
+        "libs/auth/src/index.ts"
       ]
     }
   },

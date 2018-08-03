@@ -18,6 +18,7 @@ import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { GoogleApiAuthGuard } from '@mastacode/core';
+import { authRoutes } from '@mastacode/auth';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +26,10 @@ import { GoogleApiAuthGuard } from '@mastacode/core';
     BrowserModule,
     NxModule.forRoot(),
     RouterModule.forRoot(
-      [{ path: '', children: tasksRoutes, canActivate: [GoogleApiAuthGuard] }],
+      [
+        { path: '', children: tasksRoutes, canActivate: [GoogleApiAuthGuard] },
+        { path: 'auth', children: authRoutes }
+      ],
       {
         initialNavigation: 'enabled',
         enableTracing: true
