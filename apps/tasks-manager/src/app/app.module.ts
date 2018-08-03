@@ -8,7 +8,10 @@ import { tasksRoutes } from '@mastacode/tasks';
 import { GoogleApiService } from '@mastacode/core';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { appReducer, initialState as appInitialState } from './+state/app.reducer';
+import {
+  appReducer,
+  initialState as appInitialState
+} from './+state/app.reducer';
 import { AppEffects } from './+state/app.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
@@ -33,13 +36,14 @@ import { storeFreeze } from 'ngrx-store-freeze';
         }
       ],
       {
-        initialNavigation: 'enabled', enableTracing: true
+        initialNavigation: 'enabled',
+        enableTracing: true
       }
     ),
     StoreModule.forRoot(
       { app: appReducer },
       {
-        initialState : { app : appInitialState },
+        initialState: { app: appInitialState }
         /**
          * fix for that is somewhere in:
          * https://github.com/ngrx/platform/blob/master/docs/router-store/api.md#custom-router-state-serializer

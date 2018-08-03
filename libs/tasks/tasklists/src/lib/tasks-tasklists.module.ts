@@ -7,7 +7,7 @@ import { TaskListsComponent } from './task-lists/task-lists.component';
     CommonModule,
 
     RouterModule.forChild([
-      {path: '', pathMatch: 'full', component: TaskListsComponent}
+      { path: '', pathMatch: 'full', component: TaskListsComponent }
     ])
   ],
   declarations: [TaskListsComponent]
