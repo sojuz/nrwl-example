@@ -43,7 +43,8 @@
     "@ngrx/router-store": "5.2.0",
     "@ngrx/store": "5.2.0",
     "@ngrx/store-devtools": "5.2.0",
-    "ngrx-store-freeze": "0.2.2"
+    "ngrx-store-freeze": "0.2.2",
+    "@ngrx/entity": "5.2.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.1",
