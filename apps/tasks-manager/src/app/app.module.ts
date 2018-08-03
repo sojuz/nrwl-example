@@ -33,7 +33,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
         }
       ],
       {
-        initialNavigation: 'enabled'
+        initialNavigation: 'enabled', enableTracing: true
       }
     ),
     StoreModule.forRoot(
