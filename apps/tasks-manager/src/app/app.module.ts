@@ -19,11 +19,13 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { GoogleApiAuthGuard } from '@mastacode/core';
 import { authRoutes } from '@mastacode/auth';
+import { CoreModule } from '@mastacode/core';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    CoreModule,
     NxModule.forRoot(),
     RouterModule.forRoot(
       [

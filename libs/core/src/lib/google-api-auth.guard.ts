@@ -18,7 +18,7 @@ export class GoogleApiAuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    const isSignedIn = gapi.auth2.getAuthInstance().isSignedIn.get();
+    const isSignedIn = typeof gapi !== 'undefined' && gapi.auth2.getAuthInstance().isSignedIn.get();
     if (!isSignedIn) {
       this.router.navigate(['/auth/login']);
     }
